@@ -65,10 +65,42 @@ const Game: React.FC<GameProps> = ({ difficulty, onGameOver, highScore }) => {
         obstacles={obstacles}
         effects={difficulty.effects}
       />
-      <div className="w-full max-w-lg p-2 text-center text-gray-400 text-sm bg-gray-800 rounded-b-lg md:hidden">
+
+      {/* Botões de controle */}
+      <div className="flex flex-col items-center mt-4 space-y-2 max-w-lg w-full select-none">
+        <button
+          onClick={() => changeDirection(Direction.UP)}
+          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded w-full"
+        >
+          ↑ Cima
+        </button>
+
+        <div className="flex justify-between w-full space-x-2">
+          <button
+            onClick={() => changeDirection(Direction.LEFT)}
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded flex-1"
+          >
+            ← Esquerda
+          </button>
+          <button
+            onClick={() => changeDirection(Direction.DOWN)}
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded flex-1"
+          >
+            ↓ Baixo
+          </button>
+          <button
+            onClick={() => changeDirection(Direction.RIGHT)}
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded flex-1"
+          >
+            → Direita
+          </button>
+        </div>
+      </div>
+
+      <div className="w-full max-w-lg p-2 text-center text-gray-400 text-sm bg-gray-800 rounded-b-lg md:hidden mt-3">
         Swipe to move
       </div>
-       <div className="w-full max-w-lg p-2 text-center text-gray-400 text-sm bg-gray-800 rounded-b-lg hidden md:block">
+      <div className="w-full max-w-lg p-2 text-center text-gray-400 text-sm bg-gray-800 rounded-b-lg hidden md:block mt-3">
         Use Arrow Keys or WASD to move
       </div>
     </div>
